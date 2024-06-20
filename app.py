@@ -8,8 +8,8 @@ st.write('Anuncios de ventas de coches')
 car_data = pd.read_csv('vehicles_us.csv') # leer los datos
 
 
-hist_build = st.checkbox('Odómetro') # crear un botón para generar un histograma
-disp_build = st.checkbox('Relación odómetro/precio') #crear un botón para generar un gráfico de dispersión         
+hist_odom = st.checkbox('Odómetro') # crear un botón para generar un histograma
+disp_odom = st.checkbox('Relación odómetro/precio') #crear un botón para generar un gráfico de dispersión         
 disp_cond = st.checkbox('Relación condición/precio') #crear botón para diagrama de dispersión
 hist_tipo = st.checkbox('Tipos de coches')
 
