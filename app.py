@@ -9,7 +9,6 @@ st.write('Visualiza una muestra del conjunto de datos de anuncios de coches')
 car_data = pd.read_csv('vehicles_us.csv') # leer los datos
 print(car_data.sample(n = 30))
 
-data_build = st.checkbox('Visualizar una muestra de los datos')
 hist_build = st.checkbox('Construir histograma') # crear un botón para generar un histograma
 disp_build = st.checkbox('Construir gráfico de dispersión') #crear un botón para generar un gráfico de dispersión         
 
