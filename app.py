@@ -5,27 +5,45 @@ import plotly_express as px
 st.header('Venta de vehículos') #encabezado
 
 st.write('Anuncios de ventas de coches') 
-st.write('Visualiza una muestra del conjunto de datos de anuncios de coches')
 car_data = pd.read_csv('vehicles_us.csv') # leer los datos
-print(car_data.sample(n = 30))
 
-hist_build = st.checkbox('Construir histograma') # crear un botón para generar un histograma
-disp_build = st.checkbox('Construir gráfico de dispersión') #crear un botón para generar un gráfico de dispersión         
 
-if hist_build: # al hacer clic en el botón
+hist_build = st.checkbox('Odómetro') # crear un botón para generar un histograma
+disp_build = st.checkbox('Relación odómetro/precio') #crear un botón para generar un gráfico de dispersión         
+disp_cond = st.checkbox('Relación condición/precio') #crear botón para diagrama de dispersión
+hist_tipo = st.checkbox('Tipos de coches')
+
+if hist_odom: # al hacer clic en el botón
             # escribir un mensaje
-            st.write('Construir un histograma para el conjunto de datos de anuncios de venta de coches')
+            st.write('Construir un histograma de la distancia recorrida de los vehículos en venta')
             
             # crear un histograma
-            fig = px.histogram(car_data, x="odometer")
+            fig = px.histogram(car_data, x="odometer", color="blue")
         
             # mostrar un gráfico Plotly interactivo
             st.plotly_chart(fig, use_container_width=True)
 
-if disp_build: #al hacer clic en el botón
+if disp_odom: #al hacer clic en el botón
             #escribir mensaje
-            st.write('Construir un gráfico de dispersión para el conjunto de datos de los anuncios de ventas de coches')
+            st.write('Construir un gráfico de la relación entre la distancia recorrida y el precio de los coches')
 
             #crear un gráfico
-            fig = px.scatter(car_data, x="odometer", y="price") # crear un gráfico de dispersión
+            fig = px.scatter(car_data, x="odometer", y="price", color="pink") # crear un gráfico de dispersión
             st.plotly_chart(fig, use_conteiner_width=True) #crear gráfico de dispersión
+
+if disp_cond: #al hacer clic en el botón
+            #escribir mensaje
+            st.write('Construir un gráfico de la relación de la condición del vehículo y el precio de venta')
+            #crear un gráfico
+            fig = px.scatter(car_data, x="condition", y="price", color="green") # crear un gráfico de dispersión
+            st.plotly_chart(fig, use_conteiner_width=True) #crear gráfico de dispersión
+
+if hist_tipo: # al hacer clic en el botón
+            # escribir un mensaje
+            st.write('Construir un histograma de los tipos de coches')
+            
+            # crear un histograma
+            fig = px.histogram(car_data, x="type", color="yellow")
+        
+            # mostrar un gráfico Plotly interactivo
+            st.plotly_chart(fig, use_container_width=True)
