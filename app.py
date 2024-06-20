@@ -15,7 +15,7 @@ if data_build: #al seleccionar la casilla
 
             st.write('Visualiza una muestra del conjunto de datos de anuncios de coches')
 
-            print(car_data, sample= 50)
+            print(car_data.sample(n== 50))
 
 if hist_build: # al hacer clic en el botón
             # escribir un mensaje
